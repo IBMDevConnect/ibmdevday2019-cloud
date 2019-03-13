@@ -41,7 +41,11 @@ https://cloud.ibm.com/docs/containers?topic=containers-cs_cli_install#cs_cli_ins
 
 ``` 
 
+### Create K8s Free Cluster through IBM Cloud Console
 
+``` 
+https://console.bluemix.net/docs/containers/container_index.html#container_index
+``` 
 
 ## 3. Visit the Workshop Document at the following link:
 
