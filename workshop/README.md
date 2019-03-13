@@ -51,3 +51,9 @@ https://console.bluemix.net/docs/containers/container_index.html#container_index
 
 [Hands on Workshop Cloud](https://github.com/IBMDevConnect/ibmdevday2019-cloud/blob/master/workshop/Hands%20On%20Workshop_Cloud.pdf)
 
+
+## 4. Workshop Completion Badge 
+
+``` 
+http://bit.ly/WorkshopConsentForm
+``` 
