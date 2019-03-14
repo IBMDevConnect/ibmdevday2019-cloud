@@ -9,7 +9,7 @@ Before attending this Mini Code Lab, Please make sure the you’ve finished the 
 you need to install the required CLIs to create and manage your Kubernetes clusters in IBM Cloud Container Service and to deploy containerized apps to your cluster.
 
 •	Account on IBM Cloud 
-•	As a prerequisite for the IBM Cloud Kubernetes Service plug-in, install the IBM Cloud CLI
+•	As a prerequisite for the IBM Cloud Kubernetes Service plug-in, install the ibm Cloud.
 •	Login to your IBM Cloud Account and create a Kubernetes cluster (Using GUI) Steps Below.
 1.	Login to IBM Cloud with your credentials.
 2.	Go to Catalog
