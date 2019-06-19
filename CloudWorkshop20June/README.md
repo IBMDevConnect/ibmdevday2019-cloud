@@ -42,34 +42,27 @@ Once the cluster is provision, Cluster will be shown in Normal State.
      style="float: left; margin-right: 10px;" />     
 
 
-
-    
 ## 3. Access Kubernetes Cluster using Web Terminal
-
-If you haven't already:
-1. Install the IBM Cloud CLIs and login, as described in [Lab 0](../Lab0/README.md).
-2. Provision a cluster:
-
-   ```$ ibmcloud cs cluster-create --name <name-of-cluster>```
 
 Once the cluster is provisioned, the kubernetes client CLI `kubectl` needs to be
 configured to talk to the provisioned cluster.
 
-1. Run `$ ibmcloud cs cluster-config <name-of-cluster>`, and set the `KUBECONFIG`
-   environment variable based on the output of the command. This will
-   make your `kubectl` client point to your new Kubernetes cluster.
 
-Once your Opened the Web based terminal, you are ready to deploy your first application, `guestbook`.
+This can also be done using your local desktops. You will have to install IBM Cloud Plugin Tools for doing that.
+
+For this lab, you will be using Web Terminal, to work with your cluster. 
+
+Once your open the Web based terminal, you are ready to deploy your first application, `guestbook`.
 
 ### 1. Deploy your application
 
-In this part of the lab we will deploy an application called `guestbook`
+In this part of the lab you will deploy an application called `guestbook`
 that has already been built and uploaded to DockerHub under the name
 `ibmcom/guestbook:v1`.
 
 1. Start by running `guestbook`:
 
-   ```$ kubectl run guestbook --image=ibmcom/guestbook:v1```
+   ```$ kubectl create deployment guestbook --image=ibmcom/guestbook:v1```
 
    This action will take a bit of time. To check the status of the running application,
    you can use `$ kubectl get pods`.
@@ -119,7 +112,7 @@ that has already been built and uploaded to DockerHub under the name
    Run `$ ibmcloud cs workers <name-of-cluster>`, and note the public IP listed on the `<public-IP>` line.
    
    ```console
-   $ ibmcloud cs workers osscluster
+   $ ibmcloud cs workers mycluster
    OK
    ID                                                 Public IP        Private IP     Machine Type   State    Status   Zone    Version  
    kube-hou02-pa1e3ee39f549640aebea69a444f51fe55-w1   173.193.99.136   10.76.194.30   free           normal   Ready    hou02   1.5.6_1500*
@@ -130,7 +123,78 @@ that has already been built and uploaded to DockerHub under the name
 6. Now that you have both the address and the port, you can now access the application in the web browser
    at `<public-IP>:<nodeport>`. In the example case this is `173.193.99.136:31208`.
    
+   
+   <img src="guestbook.png"
+     alt="Markdown Monster icon"
+     style="float: left; margin-right: 10px;" /> 
+     
+     
 Congratulations, you've now deployed an application to Kubernetes!
+
+### 2. Scale your application,
+Kubernetes Cluster has many capabilities, you will now explore the scaling. 
+
+In this section, you'll learn how to update the number of instances a deployment has, and 
+how to safely roll out an update of your application on Kubernetes.
+
+A replica is a copy of a pod that contains a running service. 
+By having multiple replicas of a pod, you can ensure your deployment has the available resources to 
+handle increasing load on your application.
+
+1.	kubectl provides a scale subcommand to change the size of an existing deployment. 
+Let's increase our capacity from a single running instance of guestbook up to 10 instances.
+
+   ```console
+   $ kubectl scale --replicas=10 deployment guestbook
+   deployment "guestbook" scaled
+   ```
+
+
+2. Kubernetes will now try to match the desired state of 10 replicas by starting 9 new pods with the same configuration 
+as the first.
+
+   ```console
+   $ kubectl rollout status deployment guestbook
+	Waiting for rollout to finish: 1 of 10 updated replicas are available...
+	Waiting for rollout to finish: 2 of 10 updated replicas are available...
+	Waiting for rollout to finish: 3 of 10 updated replicas are available...
+	Waiting for rollout to finish: 4 of 10 updated replicas are available...
+	Waiting for rollout to finish: 5 of 10 updated replicas are available...
+	Waiting for rollout to finish: 6 of 10 updated replicas are available...
+	Waiting for rollout to finish: 7 of 10 updated replicas are available...
+	Waiting for rollout to finish: 8 of 10 updated replicas are available...
+	Waiting for rollout to finish: 9 of 10 updated replicas are available...
+	deployment "guestbook" successfully rolled out
+   ```
+
+
+The rollout might occur so quickly that the above messages might not display
+3.	Once the rollout has finished, ensure your pods are running
+
+```console
+
+$ kubectl get pods
+NAME                        READY     STATUS    RESTARTS   AGE
+guestbook-562211614-1tqm7   1/1       Running   0          1d
+guestbook-562211614-1zqn4   1/1       Running   0          2m
+guestbook-562211614-5htdz   1/1       Running   0          2m
+guestbook-562211614-6h04h   1/1       Running   0          2m
+guestbook-562211614-ds9hb   1/1       Running   0          2m
+guestbook-562211614-nb5qp   1/1       Running   0          2m
+guestbook-562211614-vtfp2   1/1       Running   0          2m
+guestbook-562211614-vz5qw   1/1       Running   0          2m
+guestbook-562211614-zksw3   1/1       Running   0          2m
+guestbook-562211614-zsp0j   1/1       Running   0          2m
+
+
+```
+
+You should see output listing 10 replicas of your deployment
+      
+
+
+
+
 
 When you're all done, you can remove the deployment
 and thus stop taking the course.
