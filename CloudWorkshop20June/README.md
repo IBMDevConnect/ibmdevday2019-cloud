@@ -64,7 +64,7 @@ b. Click on "Web terminal(beta) "
      style="float: left; margin-right: 10px;" /> 
 
 c. Web based terminal opens at the bottom of the browser.     
-<img src="/img/webterm2.png"
+<img src="/img/webterm3.png"
      alt="Markdown Monster icon"
      style="float: left; margin-right: 10px;" />       
      
