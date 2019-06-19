@@ -1,13 +1,13 @@
-## Cloud Workshop 20 June
+# Cloud Workshop 20 June
 
 
-# 0. Register on IBM Cloud
+## 0. Register on IBM Cloud
 
 https://ibm.biz/BdzPaf
 
 After successful registration Login into your account. 
 
-# 1. Convert the IBM Cloud Lite account to Trial account
+## 1. Convert the IBM Cloud Lite account to Trial account
 
 You will be provided with PROMO Code. 
 Account -- Apply Promo Code
@@ -18,13 +18,13 @@ review this page
 
 Or Follow instruction in Lab
 
-# 2. Provision a Kubernetes Cluster on IBM Cloud
+## 2. Provision a Kubernetes Cluster on IBM Cloud
 
-From Dashboard menu, select Kubernetes
+From Dashboard menu, select Kubernetes.
 
 <img src="k8s-1.png"
      alt="Markdown Monster icon"
-     style="float: left; margin-right: 10px;" />
+     style="float: left; margin-right: 5px;" />
 
 After that click on "Create Cluster", you will be asked following details to enter.
 a - Select Free Cluster
@@ -44,7 +44,7 @@ Once the cluster is provision, Cluster will be shown in Normal State.
 
 
     
-# 0. Install Prerequisite CLIs and Provision a Kubernetes Cluster
+## 3. Access Kubernetes Cluster using Web Terminal
 
 If you haven't already:
 1. Install the IBM Cloud CLIs and login, as described in [Lab 0](../Lab0/README.md).
@@ -59,9 +59,9 @@ configured to talk to the provisioned cluster.
    environment variable based on the output of the command. This will
    make your `kubectl` client point to your new Kubernetes cluster.
 
-Once your client is configured, you are ready to deploy your first application, `guestbook`.
+Once your Opened the Web based terminal, you are ready to deploy your first application, `guestbook`.
 
-# 1. Deploy your application
+### 1. Deploy your application
 
 In this part of the lab we will deploy an application called `guestbook`
 that has already been built and uploaded to DockerHub under the name
@@ -132,13 +132,10 @@ that has already been built and uploaded to DockerHub under the name
    
 Congratulations, you've now deployed an application to Kubernetes!
 
-When you're all done, you can either use this deployment in the
-[next lab of this course](../Lab2/README.md), or you can remove the deployment
+When you're all done, you can remove the deployment
 and thus stop taking the course.
 
   1. To remove the deployment, use `$ kubectl delete deployment guestbook`.
 
   2. To remove the service, use `$ kubectl delete service guestbook`.
 
-You should now go back up to the root of the repository in preparation
-for the next lab: `$ cd ..`.
