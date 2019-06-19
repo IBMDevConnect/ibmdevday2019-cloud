@@ -1,14 +1,49 @@
-# Lab 1. Set up and deploy your first application
+# Cloud Workshop 20 June
 
-Learn how to deploy an application to a Kubernetes cluster hosted within
-the IBM Container Service.
 
+## 0. Register on IBM Cloud
+
+https://ibm.biz/BdzPaf
+
+After successful registration Login into your account. 
+
+## 1. Convert the IBM Cloud Lite account to Trial account
+
+You will be provided with PROMO Code. 
+Account -- Apply Promo Code
+
+For instructions on how to apply the codes, 
+review this page
+[IBM Cloud Sign up and PROMO Code](https://cloud.ibm.com/docs/account?topic=account-codes#codes)
+
+Or Follow instruction in Lab
+
+# 2. Provision a Kubernetes Cluster on IBM Cloid
+
+From Dashboard menu, select Kubernetes
 
 <img src="k8s-1.png"
      alt="Markdown Monster icon"
      style="float: left; margin-right: 10px;" />
+
+After that click on "Create Cluster", you will be asked following details to enter.
+a - Select Free Cluster
+b - Give a cluster name
+c - Select Geography as North America and Select Dallas with default resource group
      
+<img src="k8s-2.png"
+     alt="Markdown Monster icon"
+     style="float: left; margin-right: 10px;" />
      
+Once the cluster is provision, Cluster will be shown in Normal State. 
+     
+<img src="k8s-3.png"
+     alt="Markdown Monster icon"
+     style="float: left; margin-right: 10px;" />     
+
+
+
+    
 # 0. Install Prerequisite CLIs and Provision a Kubernetes Cluster
 
 If you haven't already:
