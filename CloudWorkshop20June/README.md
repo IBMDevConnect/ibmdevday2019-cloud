@@ -1,13 +1,13 @@
-# Cloud Workshop 20 June
+## Cloud Workshop 20 June
 
 
-## 0. Register on IBM Cloud
+# 0. Register on IBM Cloud
 
 https://ibm.biz/BdzPaf
 
 After successful registration Login into your account. 
 
-## 1. Convert the IBM Cloud Lite account to Trial account
+# 1. Convert the IBM Cloud Lite account to Trial account
 
 You will be provided with PROMO Code. 
 Account -- Apply Promo Code
@@ -18,7 +18,7 @@ review this page
 
 Or Follow instruction in Lab
 
-# 2. Provision a Kubernetes Cluster on IBM Cloid
+# 2. Provision a Kubernetes Cluster on IBM Cloud
 
 From Dashboard menu, select Kubernetes
 
@@ -31,13 +31,13 @@ a - Select Free Cluster
 b - Give a cluster name
 c - Select Geography as North America and Select Dallas with default resource group
      
-<img src="k8s-2.png"
+<img src="k8-2.png"
      alt="Markdown Monster icon"
      style="float: left; margin-right: 10px;" />
      
 Once the cluster is provision, Cluster will be shown in Normal State. 
      
-<img src="k8s-3.png"
+<img src="k8-3.png"
      alt="Markdown Monster icon"
      style="float: left; margin-right: 10px;" />     
 
