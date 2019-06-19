@@ -24,7 +24,7 @@ Or Follow instruction in Lab
 
 From Dashboard menu, select Kubernetes.
 
-<img src="/img/k8s-1.png"
+<img src="./img/k8s-1.png"
      alt="Markdown Monster icon"
      style="float: left; margin-right: 5px;" />
 
