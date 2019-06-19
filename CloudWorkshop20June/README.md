@@ -150,7 +150,7 @@ that has already been built and uploaded to DockerHub under the name
      
 Congratulations, you've now deployed an application to Kubernetes!
 
-### 2. Scale your application,
+## 5. Scale your application,
 Kubernetes Cluster has many capabilities, you will now explore the scaling. 
 
 In this section, you'll learn how to update the number of instances a deployment has, and 
