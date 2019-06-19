@@ -33,13 +33,13 @@ a - Select Free Cluster
 b - Give a cluster name
 c - Select Geography as North America and Select Dallas with default resource group
      
-<img src="/img/k8-2.png"
+<img src="./img/k8-2.png"
      alt="Markdown Monster icon"
      style="float: left; margin-right: 10px;" />
      
 Once the cluster is provision, Cluster will be shown in Normal State. 
      
-<img src="/img/k8-3.png"
+<img src="./img/k8-3.png"
      alt="Markdown Monster icon"
      style="float: left; margin-right: 10px;" />     
 
@@ -54,17 +54,17 @@ This can also be done using your local desktops. You will have to install IBM Cl
 For this lab, you will be using Web Terminal, to work with your cluster. 
 
 a. Access the Cluster, and go to Cluster details
-<img src="/img/webterm1.png"
+<img src="./img/webterm1.png"
      alt="Markdown Monster icon"
      style="float: left; margin-right: 10px;" />   
 
 b. Click on "Web terminal(beta) "
-<img src="/img/webterm2.png"
+<img src="./img/webterm2.png"
      alt="Markdown Monster icon"
      style="float: left; margin-right: 10px;" /> 
 
 c. Web based terminal opens at the bottom of the browser.     
-<img src="/img/webterm3.png"
+<img src="./img/webterm3.png"
      alt="Markdown Monster icon"
      style="float: left; margin-right: 10px;" />       
      
@@ -143,7 +143,7 @@ that has already been built and uploaded to DockerHub under the name
    at `<public-IP>:<nodeport>`. In the example case this is `173.193.99.136:31208`.
    
    
-   <img src="/img/Guestbook.png"
+   <img src="./img/Guestbook.png"
      alt="Markdown Monster icon"
      style="float: left; margin-right: 10px;" /> 
      
