@@ -5,7 +5,9 @@
 
 https://ibm.biz/BdzPaf
 
+
 After successful registration Login into your account. 
+
 
 ## 1. Convert the IBM Cloud Lite account to Trial account
 
@@ -47,12 +49,29 @@ Once the cluster is provision, Cluster will be shown in Normal State.
 Once the cluster is provisioned, the kubernetes client CLI `kubectl` needs to be
 configured to talk to the provisioned cluster.
 
-
 This can also be done using your local desktops. You will have to install IBM Cloud Plugin Tools for doing that.
 
 For this lab, you will be using Web Terminal, to work with your cluster. 
 
+a. Access the Cluster, and go to Cluster details
+<img src="webterm1.png"
+     alt="Markdown Monster icon"
+     style="float: left; margin-right: 10px;" />   
+
+b. Click on "Web terminal(beta) "
+<img src="webterm2.png"
+     alt="Markdown Monster icon"
+     style="float: left; margin-right: 10px;" /> 
+
+c. Web based terminal opens at the bottom of the browser.     
+<img src="webterm2.png"
+     alt="Markdown Monster icon"
+     style="float: left; margin-right: 10px;" />       
+     
+     
 Once your open the Web based terminal, you are ready to deploy your first application, `guestbook`.
+
+
 
 ### 1. Deploy your application
 
