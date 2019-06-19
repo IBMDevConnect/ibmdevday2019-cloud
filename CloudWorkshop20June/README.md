@@ -73,7 +73,7 @@ Once your open the Web based terminal, you are ready to deploy your first applic
 
 
 
-### 1. Deploy your application
+## 4. Deploy your application
 
 In this part of the lab you will deploy an application called `guestbook`
 that has already been built and uploaded to DockerHub under the name
@@ -105,7 +105,7 @@ that has already been built and uploaded to DockerHub under the name
    but a Deployment resource that manages the lifecycle of those pods.
  
    
-3. Once the status reads `Running`, we need to expose that deployment as a
+2. Once the status reads `Running`, we need to expose that deployment as a
    service so we can access it through the IP of the worker nodes.
    The `guestbook` application listens on port 3000.  Run:
 
@@ -114,7 +114,7 @@ that has already been built and uploaded to DockerHub under the name
    service "guestbook" exposed
    ```
 
-4. To find the port used on that worker node, examine your new service:
+3. To find the port used on that worker node, examine your new service:
 
    ```console
    $ kubectl get service guestbook
@@ -126,7 +126,7 @@ that has already been built and uploaded to DockerHub under the name
    the pod exposed to the cluster on port 31208. This port in the 31000 range is automatically chosen, 
    and could be different for you.
 
-5. `guestbook` is now running on your cluster, and exposed to the internet. We need to find out where it is accessible.
+4. `guestbook` is now running on your cluster, and exposed to the internet. We need to find out where it is accessible.
    The worker nodes running in the container service get external IP addresses.
    Run `$ ibmcloud cs workers <name-of-cluster>`, and note the public IP listed on the `<public-IP>` line.
    
@@ -139,11 +139,11 @@ that has already been built and uploaded to DockerHub under the name
    
    We can see that our `<public-IP>` is `173.193.99.136`.
    
-6. Now that you have both the address and the port, you can now access the application in the web browser
+5. Now that you have both the address and the port, you can now access the application in the web browser
    at `<public-IP>:<nodeport>`. In the example case this is `173.193.99.136:31208`.
    
    
-   <img src="guestbook.png"
+   <img src="Guestbook.png"
      alt="Markdown Monster icon"
      style="float: left; margin-right: 10px;" /> 
      
