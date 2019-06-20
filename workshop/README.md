@@ -54,6 +54,9 @@ https://console.bluemix.net/docs/containers/container_index.html#container_index
 
 ## 4. Workshop Completion Badge 
 
+
 ``` 
 http://bit.ly/WorkshopConsentForm
 ``` 
+
+Choose "Deploy a Modern application on IBM Cloud by using Kubernetes"

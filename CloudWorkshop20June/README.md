@@ -128,6 +128,11 @@ that has already been built and uploaded to DockerHub under the name
 
 4. `guestbook` is now running on your cluster, and exposed to the internet. We need to find out where it is accessible.
    The worker nodes running in the container service get external IP addresses.
+   
+   Run `$ ibmcloud ks `
+   
+   Run `$ ibmcloud ks cluster-config --cluster mycluster`
+
    Run `$ ibmcloud cs workers <name-of-cluster>`, and note the public IP listed on the `<public-IP>` line.
    
    ```console
@@ -138,6 +143,12 @@ that has already been built and uploaded to DockerHub under the name
    ```
    
    We can see that our `<public-IP>` is `173.193.99.136`.
+   
+   or You can go to IBM Cloud Dashboard to kubernetes Cluster , and get details about the Worker Node Public IP
+   
+    <img src="./img/webterm4.png"
+     alt="Markdown Monster icon"
+     style="float: left; margin-right: 10px;" /> 
    
 5. Now that you have both the address and the port, you can now access the application in the web browser
    at `<public-IP>:<nodeport>`. In the example case this is `173.193.99.136:31208`.
