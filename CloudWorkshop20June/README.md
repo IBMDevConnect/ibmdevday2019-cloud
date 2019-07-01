@@ -1,4 +1,4 @@
-# Cloud Workshop 20 June
+# Cloud Workshop 
 
 
 ## 0. Register on IBM Cloud
@@ -144,7 +144,9 @@ that has already been built and uploaded to DockerHub under the name
    
    We can see that our `<public-IP>` is `173.193.99.136`.
    
-   or You can go to IBM Cloud Dashboard to kubernetes Cluster , and get details about the Worker Node Public IP
+   [OR]
+   
+   You can go to IBM Cloud Dashboard to kubernetes Cluster , and get details about the Worker Node Public IP
    
     <img src="./img/webterm4.png"
      alt="Markdown Monster icon"
