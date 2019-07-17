@@ -1,4 +1,4 @@
-# Cloud Workshop 
+# Application Modernization Workshop - 1
 
 
 ## 0. Register on IBM Cloud
