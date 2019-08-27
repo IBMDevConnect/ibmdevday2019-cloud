@@ -25,6 +25,7 @@ To run the sample with Istio requires no changes to the application itself. Inst
 3) Install Istio
 
 Download and install [Istio 1.1.5](https://github.com/istio/istio/releases/tag/1.1.5) 
+
 [istio-1.1.5-win.zip](https://github.com/istio/istio/releases/download/1.1.5/istio-1.1.5-win.zip) 
 
 
@@ -34,24 +35,29 @@ You must already have a cluster created. Here are the steps to access your clust
 
 **Install IBM Cloud Kubernetes Service command line utilities**
 
-1.	Install the IBM Cloud command line interface.
+1.Install the IBM Cloud command line interface.
 
-2.	Log in to the IBM Cloud CLI.
+2.Log in to the IBM Cloud CLI.
+
 `ibmcloud login`
 
-3.	Install the IBM Cloud Kubernetes Service plug-in.
+3.Install the IBM Cloud Kubernetes Service plug-in.
+
 `ibmcloud plugin install container-service`
 
-4.	To verify that the plug-in is installed properly, run 
+4.To verify that the plug-in is installed properly, run 
+
 `ibmcloud plugin list`
 
 The Container Service plug-in is displayed in the results as container-service/kubernetes-service.
 
-5.	Initialize the Container Service plug-in and point the endpoint to your region. For example when prompted, enter 4 for uk-south.
+5.Initialize the Container Service plug-in and point the endpoint to your region. For example when prompted, enter 4 for uk-south.
 
 ```
 Example:
+
 ibmcloud cs region-set
+
 Choose a region:
 1. ap-north
 2. ap-south
@@ -62,7 +68,7 @@ Choose a region:
 Enter a number> 4
 ```
 
-6.	Install the kubectl Kubernetes CLI. Go to the Kubernetes page, and follow the steps to install the CLI.
+6.Install the kubectl Kubernetes CLI. Go to the Kubernetes page, and follow the steps to install the CLI.
 
 #### Access your cluster
 
@@ -70,74 +76,100 @@ Enter a number> 4
 Learn how to set the context to work with your cluster by using the kubectl CLI, access the Kubernetes dashboard, and gather basic information about your cluster.
 
 
-1.	Set the context for your cluster in your CLI. Every time you log in to the IBM Cloud Kubernetes Service CLI to work with the cluster, you must run these commands to set the path to the cluster's configuration file as a session variable. The Kubernetes CLI uses this variable to find a local configuration file and certificates that are necessary to connect with the cluster in IBM Cloud.
+1.Set the context for your cluster in your CLI. Every time you log in to the IBM Cloud Kubernetes Service CLI to work with the cluster, you must run these commands to set the path to the cluster's configuration file as a session variable. The Kubernetes CLI uses this variable to find a local configuration file and certificates that are necessary to connect with the cluster in IBM Cloud.
 
 
 a. List the available clusters.
+
 `ibmcloud cs clusters`
 
 
 b. Set an environment variable for your cluster name(Replace export with SET for Windows)
-`export MYCLUSTER=<your_cluster_name>`
+`
+export MYCLUSTER=<your_cluster_name>`
 
 
 c. Download the configuration file and certificates for your cluster using the cluster-config command.
+
 `ibmcloud cs cluster-config $MYCLUSTER`
 
 
 d. Copy and paste the output command from the previous step to set the KUBECONFIG environment variable and configure your CLI to run kubectl commands against your cluster.(Replace export with SET for Windows)
+
 `Example:
 export KUBECONFIG=/Users/user-name/.bluemix/plugins/container-service/clusters/mycluster/kube-config-hou02-mycluster.yml`
 
 
-2.	Get basic information about your cluster and its worker nodes. This information can help you manage your cluster and troubleshoot issues.
+2.Get basic information about your cluster and its worker nodes. This information can help you manage your cluster and troubleshoot issues.
 
 a. View details of your cluster.
-		`ibmcloud cs cluster-get $MYCLUSTER`
+		
+`ibmcloud cs cluster-get $MYCLUSTER`
         
         
 b. Verify the worker nodes in the cluster.
-		`ibmcloud cs workers $MYCLUSTER
-		ibmcloud cs worker-get <worker_ID>`
+
+
+`ibmcloud cs workers $MYCLUSTER
+
+ibmcloud cs worker-get <worker_ID>`
         
         
-3.	Validate access to your cluster.
+3.Validate access to your cluster.
 
 a. View nodes in the cluster.
-		`kubectl get node`
+
+`kubectl get node`
+
 b. View services, deployments, and pods.
-		`kubectl get svc,deploy,po --all-namespaces`
+
+`kubectl get svc,deploy,po --all-namespaces`
 
 #### Clone the lab repo
 
-1.	From your command line, run:
+1.From your command line, run:
 
 `git clone https://github.com/IBM/istio101
+
 cd istio101/workshop`
 
 This is the working directory for the workshop. You will use the example .yaml files that are located in the workshop/plans directory in the following exercises.
 
+
 ### Task 2: Installing Istio on IBM Cloud Kubernetes service
+
 
 In this module, you will have to download and install Istio.
 
-1.	Either download Istio directly from https://github.com/istio/istio/releases or get the latest version by using curl:
+
+1.Either download Istio directly from https://github.com/istio/istio/releases or get the latest version by using curl:
+
 `curl -L https://git.io/getLatestIstio | sh -`
 
-2.	Change the directory to the Istio file location.
+2.Change the directory to the Istio file location.
+
 `cd istio-<version-number>`
 
+
 3.	Add the istioctl client to your PATH.(Replace export with SET for Windows)
+
 `export PATH=$PWD/bin:$PATH`
 
+
 4.	Install Istio’s Custom Resource Definitions via kubectl apply, and wait a few seconds for the CRDs to be committed in the kube-apiserver:
+
 `for i in install/kubernetes/helm/istio-init/files/crd*yaml; do kubectl apply -f $i; done`
 
+
 5.	Now let's install Istio demo profile into the istio-system namespace in your Kubernetes cluster:
+
 `kubectl apply -f install/kubernetes/istio-demo.yaml`
 
+
 6.	Ensure that the istio-* Kubernetes services are deployed before you continue.
+
 `kubectl get svc -n istio-system`
+
 
 ```
 Sample output:
@@ -197,13 +229,15 @@ Congratulations! You successfully installed Istio into your cluster.
 
 
 2.The default Istio installation uses automatic sidecar injection. Label the namespace that will host the application with istio-injection=enabled:
+
 	`$ kubectl label namespace default istio-injection=enabled`
 	
 	
 3.Deploy your application using the kubectl command:
+
 	`$ kubectl apply -f samples/bookinfo/platform/kube/bookinfo.yaml`
 
-4.Confirm all services and pods are correctly defined and running:$ 
+4.Confirm all services and pods are correctly defined and running:
 
 	`$ kubectl get services`
 
@@ -237,6 +271,7 @@ Determining the ingress IP and ports
 Now that the Bookinfo services are up and running, you need to make the application accessible from outside of your Kubernetes cluster, e.g., from a browser. An Istio Gateway is used for this purpose.
 
 1.Define the ingress gateway for the application:
+
 `$ kubectl apply -f samples/bookinfo/networking/bookinfo-gateway.yaml`
 
 
@@ -249,7 +284,10 @@ Now that the Bookinfo services are up and running, you need to make the applicat
 ```
 
 3.Execute the following command to determine if your Kubernetes cluster is running in an environment that supports external load balancers:
+
+
 	`$ kubectl get svc istio-ingressgateway -n istio-system`
+	
 ```
 	NAME                   TYPE           CLUSTER-IP       EXTERNAL-IP     PORT(S)                                      AGE
 	istio-ingressgateway   LoadBalancer   172.21.109.129   130.211.10.121  80:31380/TCP,443:31390/TCP,31400:31400/TCP   17h
@@ -267,6 +305,7 @@ $ export SECURE_INGRESS_PORT=$(kubectl -n istio-system get service istio-ingress
 ```
 
 4.Set GATEWAY_URL: (Replace export with SET for Windows)
+
 	`$ export GATEWAY_URL=$INGRESS_HOST:$INGRESS_PORT`
 
 5.`$ echo INGRESS_PORT`
