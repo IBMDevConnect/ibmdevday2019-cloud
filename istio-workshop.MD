@@ -11,20 +11,18 @@ To run the sample with Istio requires no changes to the application itself. Inst
 
 ## Pre-requisite:
 
-1)	Install IBM CLI
-[https://github.com/IBM-Cloud/ibm-cloud-cli-release/releases/
-v0.15.1](https://github.com/IBM-Cloud/ibm-cloud-cli-release/releases/
-v0.15.1)
+1) Install IBM CLI
+[https://github.com/IBM-Cloud/ibm-cloud-cli-release/releases/v0.15.1](https://github.com/IBM-Cloud/ibm-cloud-cli-release/releases/v0.15.1)
 
 [Windows 64 bit](https://clis.ng.bluemix.net/download/bluemix-cli/0.15.1/win64)
 
 
-2)	Install Kubectl 
+2) Install Kubectl 
 
 `curl -LO https://storage.googleapis.com/kubernetes-release/release/v1.14.0/bin/windows/amd64/kubectl.exe`
 
 
-3)	Install Istio
+3) Install Istio
 
 Download and install [Istio 1.1.5](https://github.com/istio/istio/releases/tag/1.1.5) 
 [istio-1.1.5-win.zip](https://github.com/istio/istio/releases/download/1.1.5/istio-1.1.5-win.zip) 
@@ -66,7 +64,7 @@ Enter a number> 4
 
 6.	Install the kubectl Kubernetes CLI. Go to the Kubernetes page, and follow the steps to install the CLI.
 
-### Access your cluster
+#### Access your cluster
 
 
 Learn how to set the context to work with your cluster by using the kubectl CLI, access the Kubernetes dashboard, and gather basic information about your cluster.
@@ -110,7 +108,7 @@ a. View nodes in the cluster.
 b. View services, deployments, and pods.
 		`kubectl get svc,deploy,po --all-namespaces`
 
-### Clone the lab repo
+#### Clone the lab repo
 
 1.	From your command line, run:
 
@@ -140,6 +138,7 @@ In this module, you will have to download and install Istio.
 
 6.	Ensure that the istio-* Kubernetes services are deployed before you continue.
 `kubectl get svc -n istio-system`
+
 ```
 Sample output:
 NAME                     TYPE           CLUSTER-IP       EXTERNAL-IP      PORT(S)                                                                                                                                      AGE
@@ -160,9 +159,14 @@ prometheus               ClusterIP      172.21.53.185    <none>           9090/T
 tracing                  ClusterIP      172.21.6.64      <none>           80/TCP                                                                                                                                       29s
 zipkin                   ClusterIP      172.21.229.37    <none>           9411/TCP                                                                                                                                     29s
 ```
+
 Note: If your istio-ingressgateway service IP is , confirm that you are using a standard/paid cluster. Free cluster is not supported for this lab.
-1.	Ensure the corresponding pods istio-citadel-*, istio-ingressgateway-*, istio-pilot-*, and istio-policy-* are all in Running state before you continue.
-kubectl get pods -n istio-system
+
+1.Ensure the corresponding pods istio-citadel-*, istio-ingressgateway-*, istio-pilot-*, and istio-policy-* are all in Running state before you continue.
+
+`kubectl get pods -n istio-system`
+
+```
 Sample output:
 NAME                                      READY   STATUS      RESTARTS   AGE
 grafana-5c45779547-v77cl                  1/1     Running     0          103s
@@ -180,64 +184,97 @@ istio-telemetry-76c8fbc99f-hxskk          2/2     Running     2          103s
 istio-tracing-5fbc94c494-5nkjd            1/1     Running     0          102s
 kiali-56d95cf466-bpgfq                    1/1     Running     0          103s
 prometheus-8647cf4bc7-qnp6x               1/1     Running     0          102s
-Before you continue, make sure all the pods are deployed and are either in the Running or Completed state. If they're in pending state, wait a few minutes to let the deployment finish.
-Congratulations! You successfully installed Istio into your cluster.
-Task 3: Deploy the App
-1.	Change directory to the root of the Istio installation.
-2.	The default Istio installation uses automatic sidecar injection. Label the namespace that will host the application with istio-injection=enabled:
-	$ kubectl label namespace default istio-injection=enabled
-3.	Deploy your application using the kubectl command:
-	$ kubectl apply -f samples/bookinfo/platform/kube/bookinfo.yaml
+```
 
-4.	Confirm all services and pods are correctly defined and running:$ kubectl get services
+Before you continue, make sure all the pods are deployed and are either in the Running or Completed state. If they're in pending state, wait a few minutes to let the deployment finish.
+
+Congratulations! You successfully installed Istio into your cluster.
+
+### Task 3: Deploy the App
+
+
+1.Change directory to the root of the Istio installation.
+
+
+2.The default Istio installation uses automatic sidecar injection. Label the namespace that will host the application with istio-injection=enabled:
+	`$ kubectl label namespace default istio-injection=enabled`
+	
+	
+3.Deploy your application using the kubectl command:
+	`$ kubectl apply -f samples/bookinfo/platform/kube/bookinfo.yaml`
+
+4.Confirm all services and pods are correctly defined and running:$ 
+
+	`$ kubectl get services`
+
+	```
 	NAME                       CLUSTER-IP   EXTERNAL-IP   PORT(S)              AGE
 	details                    10.0.0.31    <none>        9080/TCP             6m
 	kubernetes                 10.0.0.1     <none>        443/TCP              7d
 	productpage                10.0.0.120   <none>        9080/TCP             6m
 	ratings                    10.0.0.15    <none>        9080/TCP             6m
 	reviews                    10.0.0.170   <none>        9080/TCP             6m
+	```
 and
-	$ kubectl get pods
+	`$ kubectl get pods`
+```
 	NAME                                        READY     STATUS    RESTARTS   AGE
 	details-v1-1520924117-48z17                 2/2       Running   0          6m
 	productpage-v1-560495357-jk1lz              2/2       Running   0          6m
 	ratings-v1-734492171-rnr5l                  2/2       Running   0          6m
-	reviews-v1-874083890-f0qf0                  2/2       Running   0       6m
+	reviews-v1-874083890-f0qf0                  2/2       Running   0       ```6m
 	reviews-v2-1343845940-b34q5                 2/2       Running   0          6m
 	reviews-v3-1813607990-8ch52                 2/2       Running   0          6m
+```
+
 To confirm that the Bookinfo application is running, send a request to it by a curl command from some pod, for example from ratings:
-	$ kubectl exec -it $(kubectl get pod -l app=ratings -o jsonpath='{.items[0].metadata.name}') -c ratings -- curl productpage:9080/productpage | grep -o "<title>.*</title>"
+
+	`$ kubectl exec -it $(kubectl get pod -l app=ratings -o jsonpath='{.items[0].metadata.name}') -c ratings -- curl productpage:9080/productpage | grep -o "<title>.*</title>"`
 	<title>Simple Bookstore App</title>
 
 Determining the ingress IP and ports
+
 Now that the Bookinfo services are up and running, you need to make the application accessible from outside of your Kubernetes cluster, e.g., from a browser. An Istio Gateway is used for this purpose.
-1.	Define the ingress gateway for the application:
-$ kubectl apply -f samples/bookinfo/networking/bookinfo-gateway.yaml
-2.	Confirm the gateway has been created:
+
+1.Define the ingress gateway for the application:
+`$ kubectl apply -f samples/bookinfo/networking/bookinfo-gateway.yaml`
+
+
+2.Confirm the gateway has been created:
+
+```
 	$ kubectl get gateway
 	NAME               AGE
 	bookinfo-gateway   32s
+```
 
-3.	Execute the following command to determine if your Kubernetes cluster is running in an environment that supports external load balancers:
-	$ kubectl get svc istio-ingressgateway -n istio-system
-
+3.Execute the following command to determine if your Kubernetes cluster is running in an environment that supports external load balancers:
+	`$ kubectl get svc istio-ingressgateway -n istio-system`
+```
 	NAME                   TYPE           CLUSTER-IP       EXTERNAL-IP     PORT(S)                                      AGE
 	istio-ingressgateway   LoadBalancer   172.21.109.129   130.211.10.121  80:31380/TCP,443:31390/TCP,31400:31400/TCP   17h
 
+```
 
 Follow these instructions if you have determined that your environment does have an external load balancer.
+
 Set the ingress IP and ports: (Replace export with SET for Windows)
+
+```
 $ export INGRESS_HOST=$(kubectl -n istio-system get service istio-ingressgateway -o jsonpath='{.status.loadBalancer.ingress[0].ip}')
 $ export INGRESS_PORT=$(kubectl -n istio-system get service istio-ingressgateway -o jsonpath='{.spec.ports[?(@.name=="http2")].port}')
 $ export SECURE_INGRESS_PORT=$(kubectl -n istio-system get service istio-ingressgateway -o jsonpath='{.spec.ports[?(@.name=="https")].port}')
+```
 
-4.	Set GATEWAY_URL: (Replace export with SET for Windows)
-	$ export GATEWAY_URL=$INGRESS_HOST:$INGRESS_PORT
+4.Set GATEWAY_URL: (Replace export with SET for Windows)
+	`$ export GATEWAY_URL=$INGRESS_HOST:$INGRESS_PORT`
 
-5.	$ echo INGRESS_PORT
+5.`$ echo INGRESS_PORT`
 
-6.	Open the below link by replacing it with Public IP of IBM Kubernetes Cluster
+6.Open the below link by replacing it with Public IP of IBM Kubernetes Cluster
+
 
 http://<replace_with_public_ibm_kube_ip:31380/productpage
+
 
 Congratulations, you have completed the workshop.
