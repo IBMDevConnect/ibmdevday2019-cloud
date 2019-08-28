@@ -346,9 +346,9 @@ Transfer 50% of the traffic from reviews:v1 to reviews:v3 with the following com
 
 check rule replaced
 
-`$kubectl get virtualservice reviews -o yaml`$
+`$kubectl get virtualservice reviews -o yaml`
 
-`
+```
 apiVersion: networking.istio.io/v1alpha3
 kind: VirtualService
 metadata:
@@ -367,7 +367,7 @@ spec:
         host: reviews
         subset: v3
       weight: 50
-
+```
 `
 
 Congratulations, you have completed the workshop.
