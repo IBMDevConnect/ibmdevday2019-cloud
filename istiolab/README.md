@@ -305,6 +305,10 @@ In the above application URL, when you keep on hitting the URL, you will get dif
 
 But using Traffic management , you will see few examples here.
 
+First Apply default destination rules
+`$ kubectl apply -f samples/bookinfo/networking/destination-rule-all.yaml `
+
+
 ## A.	Pointing all request to v1 of review
 
 `$kubectl apply -f samples/bookinfo/networking/virtual-service-all-v1.yaml`
