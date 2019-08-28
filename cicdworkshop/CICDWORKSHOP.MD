@@ -6,7 +6,7 @@ Steps:
 
 2. Click on **ACCESS** in the Kubernetes cluster page and click on **Enable Toolchain** 
 
-![DevOps](/images/main.png)
+![DevOps](cicdworkshop/images/1.png)
 
 3. Click on **Create** of **Develop a Kubernetes app with Helm** 
 
