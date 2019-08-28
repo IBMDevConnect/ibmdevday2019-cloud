@@ -260,12 +260,9 @@ and
 	reviews-v3-1813607990-8ch52                 2/2       Running   0          6m
 ```
 
-To confirm that the Bookinfo application is running, send a request to it by a curl command from some pod, for example from ratings:
 
-	`$ kubectl exec -it $(kubectl get pod -l app=ratings -o jsonpath='{.items[0].metadata.name}') -c ratings -- curl productpage:9080/productpage | grep -o "<title>.*</title>"`
-	<title>Simple Bookstore App</title>
 
-Determining the ingress IP and ports
+5. Determining the ingress IP and ports
 
 Now that the Bookinfo services are up and running, you need to make the application accessible from outside of your Kubernetes cluster, e.g., from a browser. An Istio Gateway is used for this purpose.
 
@@ -293,28 +290,11 @@ Now that the Bookinfo services are up and running, you need to make the applicat
 
 ```
 
-Follow these instructions if you have determined that your environment does have an external load balancer.
-
-Set the ingress IP and ports: (Replace export with SET for Windows)
-
-```
-$ export INGRESS_HOST=$(kubectl -n istio-system get service istio-ingressgateway -o jsonpath='{.status.loadBalancer.ingress[0].ip}')
-$ export INGRESS_PORT=$(kubectl -n istio-system get service istio-ingressgateway -o jsonpath='{.spec.ports[?(@.name=="http2")].port}')
-$ export SECURE_INGRESS_PORT=$(kubectl -n istio-system get service istio-ingressgateway -o jsonpath='{.spec.ports[?(@.name=="https")].port}')
-```
-
-4.Set GATEWAY_URL: (Replace export with SET for Windows)
-
-	`$ export GATEWAY_URL=$INGRESS_HOST:$INGRESS_PORT`
-
-5.`$ echo INGRESS_PORT`
-
-6.Open the below link by replacing it with Public IP of IBM Kubernetes Cluster
+4.Open the below link by replacing it with Public IP of IBM Kubernetes Cluster
 
 ```
 http://<replace_with_public_ibm_kube_ip:31380/productpage
 ```
-
 
 You have deploye the application successfully.
 Now let us use Istio capabilities, to manage these individual microservices.
