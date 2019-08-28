@@ -11,6 +11,10 @@ To run the sample with Istio requires no changes to the application itself. Inst
 
 ## Pre-requisite:
 
+For local desktop clients.
+
+In case you are going to use Web Terminal, Task 2
+
 1) Install IBM CLI
 [https://github.com/IBM-Cloud/ibm-cloud-cli-release/releases/v0.15.1](https://github.com/IBM-Cloud/ibm-cloud-cli-release/releases/v0.15.1)
 
@@ -20,18 +24,6 @@ To run the sample with Istio requires no changes to the application itself. Inst
 2) Install Kubectl 
 
 `curl -LO https://storage.googleapis.com/kubernetes-release/release/v1.14.0/bin/windows/amd64/kubectl.exe`
-
-
-In case you are using Web Terminal, Jump to section 3
-
-
-3) Install Istio
-
-Download and install [Istio 1.1.5](https://github.com/istio/istio/releases/tag/1.1.5) 
-
-[istio-1.1.5-win.zip](https://github.com/istio/istio/releases/download/1.1.5/istio-1.1.5-win.zip) 
-
-
 
 
 
@@ -131,7 +123,8 @@ b. View services, deployments, and pods.
 
 `kubectl get svc,deploy,po --all-namespaces`
 
-#### Clone the lab repo
+
+### Task 2:  Clone the lab repo
 
 1.From your command line, run:
 
@@ -142,7 +135,7 @@ cd istio101/workshop`
 This is the working directory for the workshop. You will use the example .yaml files that are located in the workshop/plans directory in the following exercises.
 
 
-### Task 2: Installing Istio on IBM Cloud Kubernetes service
+### Task 3: Installing Istio on IBM Cloud Kubernetes service
 
 
 In this module, you will have to download and install Istio.
@@ -150,7 +143,7 @@ In this module, you will have to download and install Istio.
 
 1.Either download Istio directly from https://github.com/istio/istio/releases or get the latest version by using curl:
 
-`curl -L https://git.io/getLatestIstio | sh -`
+`curl -L https://git.io/getLatestIstio | ISTIO_VERSION=1.2.4 sh -`
 
 2.Change the directory to the Istio file location.
 
@@ -228,7 +221,7 @@ Before you continue, make sure all the pods are deployed and are either in the R
 
 Congratulations! You successfully installed Istio into your cluster.
 
-### Task 3: Deploy the App
+### Task 4: Deploy the App
 
 
 1.Change directory to the root of the Istio installation.
@@ -318,19 +311,21 @@ $ export SECURE_INGRESS_PORT=$(kubectl -n istio-system get service istio-ingress
 
 6.Open the below link by replacing it with Public IP of IBM Kubernetes Cluster
 
-
+```
 http://<replace_with_public_ibm_kube_ip:31380/productpage
+```
+
 
 You have deploye the application successfully.
 Now let us use Istio capabilities, to manage these individual microservices.
 
-### Task 4: Request Routing
+### Task 5: Request Routing
 
 In the above application URL, when you keep on hitting the URL, you will get different versions of review service.
 
 But using Traffic management , you will see few examples here.
 
-A.	Pointing all request to v1 of review
+## A.	Pointing all request to v1 of review
 
 `$kubectl apply -f samples/bookinfo/networking/virtual-service-all-v1.yaml`
 
@@ -338,7 +333,7 @@ You can delete this rule and again check for the previous behavior of services.
 
 `$kubectl delete -f samples/bookinfo/networking/virtual-service-all-v1.yaml`
 
-B. Apply weight-based routing
+## B. Apply weight-based routing
 
 Transfer 50% of the traffic from reviews:v1 to reviews:v3 with the following command
 
