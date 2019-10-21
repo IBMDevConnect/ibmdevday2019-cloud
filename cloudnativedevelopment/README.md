@@ -40,12 +40,16 @@ UBUNTU_CODENAME=bionic
 
 Get installable
 ```
-$ wget https://github.com/appsody/appsody/releases/download/0.2.8/appsody_0.2.8_amd64.deb
+$ wget https://github.com/appsody/appsody/releases/download/0.4.7/appsody_0.4.7_amd64.deb
+```
+
+```
+$ chmod 777 appsody_0.4.7_amd64.deb
 ```
 
 Install Appsody
 ```
-$ sudo apt install ./appsody_0.2.8_amd64.deb
+$ sudo apt install ./appsody_0.4.7_amd64.deb
 
 ```	
 
