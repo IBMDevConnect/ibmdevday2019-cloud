@@ -28,4 +28,3 @@
 	
 	When you're all done, you inform the instructor to stop the environment.
 	
-	
