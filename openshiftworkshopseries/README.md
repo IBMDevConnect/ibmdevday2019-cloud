@@ -17,17 +17,21 @@ If you need a cloudshell you can use https://workshop.shell.cloud.ibm.com/
 ```
 
 
-## 4. Once you get your openshift cluster, we will be doing following lab
-```
+## 5. Once you get your openshift cluster, we will be doing following lab
+
 
 S2I Lab
 
+```
 Here Source Code is https://github.com/sagar-jadhav/node-hello
 
 And the Builder Image here is nodejs version 8
 
-Run 
+```
 
+Run from the command line from web
+
+```
 oc new-app -i=nodejs:8 https://github.com/sagar-jadhav/node-hello --name=node-hello
 
 ```
