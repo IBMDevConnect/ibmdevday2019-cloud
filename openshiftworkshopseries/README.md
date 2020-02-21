@@ -3,7 +3,7 @@
 We will be using OpenShift on IBM Cloud for this hands on.
 
 ## 1. Sign up on IBM Cloud, using your professional id
-https://ibm.biz/Bdzkre
+https://ibm.biz/BdqEVV
 
 ## 2. Deploy app on IBM Cloud, through CI/CD
 http://bit.ly/hangman12
