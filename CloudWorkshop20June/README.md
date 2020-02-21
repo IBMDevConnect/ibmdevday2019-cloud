@@ -42,8 +42,13 @@ Once the cluster is provisioned, Cluster will be shown in Normal State.
      alt="Markdown Monster icon"
      style="float: left; margin-right: 10px;" />     
 
+## 3. Create a namespace in Container Registry
 
-## 3. Access Kubernetes Cluster using Web Terminal
+1. Create `Container Registry` service in IBM Cloud
+
+2. Create a `namespace` within the container registry service
+
+## 4. Access Kubernetes Cluster using Web Terminal
 
 Once the cluster is provisioned, the kubernetes client CLI `kubectl` needs to be
 configured to talk to the provisioned cluster.
@@ -73,7 +78,7 @@ Once your open the Web based terminal, you are ready to deploy your first applic
 
 
 
-## 4. Deploy your application
+## 5. Deploy your application
 
 In this part of the lab you will deploy an application called `guestbook`
 that has already been built and uploaded to DockerHub under the name
@@ -163,7 +168,7 @@ that has already been built and uploaded to DockerHub under the name
      
 Congratulations, you've now deployed an application to Kubernetes!
 
-## 5. Scale your application,
+## 6. Scale your application,
 Kubernetes Cluster has many capabilities, you will now explore the scaling. 
 
 In this section, you'll learn how to update the number of instances a deployment has, and 
