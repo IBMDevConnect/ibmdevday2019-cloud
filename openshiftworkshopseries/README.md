@@ -19,6 +19,22 @@ If you need a cloudshell you can use https://workshop.shell.cloud.ibm.com/
 
 ## 4. Once you get your openshift cluster, we will be doing following lab
 ```
+
+S2I Lab
+
+Here Source Code is https://github.com/sagar-jadhav/node-hello
+
+And the Builder Image here is nodejs version 8
+
+Run 
+
+oc new-app -i=nodejs:8 https://github.com/sagar-jadhav/node-hello --name=node-hello
+
+```
+Last Workshop we did  Lab
+
+```
+
 https://github.com/nheidloff/openshift-on-ibm-cloud-workshops/blob/master/1-understanding-openshift/Part4.md#part-4-deploy-an-application-on-openshift-on-the-ibm-cloud
 ```
 
