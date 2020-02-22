@@ -10,6 +10,7 @@ http://bit.ly/hangman12
 
 ## 3. Get the environment for the lab
 Request Organizer to get the Openshift Cluster Environment
+URL: https://osfoundations.mybluemix.net
 
 ## 4. Access commandline through remote shell
 ```
@@ -19,6 +20,7 @@ If you need a cloudshell you can use https://workshop.shell.cloud.ibm.com/
 
 ## 5. Once you get your openshift cluster, we will be doing following lab
 
+https://github.com/IBM/openshift101/tree/master/workshop/exercise-01
 
 S2I Lab
 
