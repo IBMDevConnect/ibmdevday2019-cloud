@@ -10,7 +10,7 @@ http://bit.ly/hangman12
 
 ## 3. Get the environment for the lab
 Request Organizer to get the Openshift Cluster Environment
-URL: https://osfoundations.mybluemix.net
+URL: https://oswtdelhi.mybluemix.net
 
 ## 4. Access commandline through remote shell
 ```
