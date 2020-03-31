@@ -130,16 +130,22 @@ You should see out put as
 
 Now let's try changing the code. Edit the index.html file to output something other than "Hello from Appsody!". 
 
+Change from heading
+```
+<h3>Hello from Appsody!</h3>
+```
+
+To 
+```
+<h3>Hello from Appsody - HCL Workshop!</h3>
+```
+
 ![codechange](image1.png)
 
-Change from heading
-<h3>Hello from Appsody!</h3>
-To 
-<h3>Hello from Appsody - HCL Workshop!</h3>
 
 When you save the file, Appsody picks up the change and automatically updates the container. 
 
-Run
+Run to verify the changes
 
 ```
 $ curl http://localhost:8080 to see the new message!
@@ -148,6 +154,7 @@ $ curl http://localhost:8080 to see the new message!
 When you're all done, you can stop the environment.
 
 Observe the change of heading
+```
 <h3>Hello from Appsody - HCL Workshop!</h3>
-
+```
 
