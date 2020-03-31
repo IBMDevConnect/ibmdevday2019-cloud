@@ -127,16 +127,15 @@ You should see out put as
 
 
 ```
-
 ## 7. Change the code
 
-Now let's try changing the code. Edit the file index.html to output something other than "Hello from Appsody!". 
+Now let's try changing the code. Edit the index.html file to output something other than "Hello from Appsody!". 
 
 (img/image1.png)
 
 Change from heading
 <h3>Hello from Appsody!</h3>
-to
+To 
 <h3>Hello from Appsody - HCL Workshop!</h3>
 
 When you save the file, Appsody picks up the change and automatically updates the container. 
