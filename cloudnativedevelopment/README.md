@@ -130,7 +130,7 @@ You should see out put as
 
 Now let's try changing the code. Edit the index.html file to output something other than "Hello from Appsody!". 
 
-(image1.png)
+![codechange](image1.png)
 
 Change from heading
 <h3>Hello from Appsody!</h3>
