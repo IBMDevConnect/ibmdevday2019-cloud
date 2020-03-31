@@ -11,7 +11,6 @@ https://www.katacoda.com/courses/ubuntu/playground1804
 
 Sign in using your gmail id.
 
-
 ## 3. Check the OS
 
 ```
