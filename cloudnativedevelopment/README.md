@@ -11,7 +11,7 @@ https://www.katacoda.com/courses/ubuntu/playground1804
 
 Sign in using your gmail id.
 
-## 3. Check the OS
+## 3. Check the Operating System in the Katakoda environment
 
 ```
 $ cat /etc/os-release
@@ -130,7 +130,7 @@ You should see out put as
 
 Now let's try changing the code. Edit the index.html file to output something other than "Hello from Appsody!". 
 
-(img/image1.png)
+(image1.png)
 
 Change from heading
 <h3>Hello from Appsody!</h3>
