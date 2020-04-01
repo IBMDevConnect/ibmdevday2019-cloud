@@ -3,7 +3,7 @@
 We will be using Appsody from Kabanero Project for this hands on.
 
 ## 1. Sign up on Docker
-(https://hub.docker.com/)
+<https://hub.docker.com/>
 
 ## 2. Get the environment
 
