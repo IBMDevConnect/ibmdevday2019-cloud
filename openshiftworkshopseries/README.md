@@ -25,7 +25,7 @@ https://github.com/IBM/openshift101/tree/master/workshop/exercise-01
 S2I Lab
 
 ```
-Here Source Code is https://github.com/sagar-jadhav/node-hello
+Here Source Code is https://github.com/IBMDevConnect/node-hello
 
 And the Builder Image here is nodejs version 8
 
@@ -34,7 +34,7 @@ And the Builder Image here is nodejs version 8
 Run from the command line from web
 
 ```
-oc new-app -i=nodejs:8 https://github.com/sagar-jadhav/node-hello --name=node-hello
+oc new-app -i=nodejs:8 https://github.com/IBMDevConnect/node-hello --name=node-hello
 
 ```
 Last Workshop we did  Lab
